@@ -1,6 +1,6 @@
 # HNG13 Task | Stage 2 | Backend | Country Currency & Exchange API (FastAPI)
 
-A RESTful API that fetches countries from restcountries.com, matches currencies with exchange rates from open.er-api.com, computes an estimated_gdp, caches data in a MySQL database, and provides CRUD + image summary.
+A RESTful API that fetches countries from **restcountries.com**, matches currencies with exchange rates from **open.er-api.com**, computes an **estimated_gdp**, caches data in a MySQL database, and provides CRUD + image summary.
 
 
 
@@ -15,19 +15,22 @@ This project was built as part of the **HNG13 Internship — Stage 2 Backend Tas
 
 ## 🚀 Features
 
-- Analyze any string for:
-  - Length  
-  - Palindrome detection  
-  - Word count  
-  - Unique character count  
-  - SHA256 hash  
-  - Character frequency map
-- Store and retrieve analyzed strings from the database
-- Filter results via query parameters or **natural language**
-- Handles duplicate entries gracefully
-- Returns structured JSON responses
-- Built with **FastAPI**, **SQLAlchemy**, and **PostgreSQL**
-- Includes CORS setup for frontend integration
+- Fetches all countries from restcountries.com
+
+- Retrieves live exchange rates from open.er-api.com
+
+- Computes **estimated_gdp** = **population** × **random(1000–2000)** ÷ **exchange_rate**
+
+- Stores and updates data in MySQL as cached records
+
+- Generates an image summary (cache/summary.png) after refresh
+
+- Provides filters, sorting, and CRUD endpoints
+
+- Handles API and DB errors gracefully
+
+- Deployed easily on **Railway**
+
 
 ---
 ## 💻 Tech Stack
@@ -130,7 +133,71 @@ This project was built as part of the **HNG13 Internship — Stage 2 Backend Tas
 
 ```
 ---
+## Step 1: Install MySQL on Windows
+- Use MySQL Installer (Recommended)
 
+Go to the official site:
+👉 https://dev.mysql.com/downloads/installer/
+
+Download MySQL Installer for Windows (either Full or Web version)
+
+Run the installer and select:
+
+✅ MySQL Server
+
+🧩 MySQL Workbench (optional GUI)
+
+🖥️ MySQL Shell (optional CLI)
+
+Proceed with installation
+
+## Step 2: Configure MySQL Server
+
+During setup:
+
+Choose Standalone MySQL Server / Classic Configuration
+
+Set your root password (example: mypassword)
+
+Leave the default port: 3306
+
+📝 Note these:
+
+Username: root
+Password: (whatever you set)
+Port: 3306
+
+## Step 3: Verify Installation
+
+- After installation, open Command Prompt or PowerShell and run:
+
+ - mysql -u root -p
+
+
+- Enter your password.
+ - If successful, you’ll see:
+ - mysql>
+
+
+Type exit; to quit.
+
+🧱 Step 4: Create the Database
+
+Log back in:
+
+mysql -u root -p
+
+
+Then create your database:
+
+CREATE DATABASE country_api;
+
+
+Confirm it exists:
+
+SHOW DATABASES;
+
+---
 ## Create a .env file
 - Create a .env file in the project root:
 ```bash
