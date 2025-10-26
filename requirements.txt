@@ -1,7 +1,7 @@
 fastapi==0.115.0
 uvicorn==0.30.0
 sqlalchemy==2.0.43
-# sqlalchemy==2.0.23
+cryptography
 psycopg[binary]==3.2.3
 httpx
 Pillow
