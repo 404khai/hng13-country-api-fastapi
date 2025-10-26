@@ -62,73 +62,41 @@ This project was built as part of the **HNG13 Internship — Stage 2 Backend Tas
 
 ### ✅ Example Request — Create / Analyze String
 
-**POST** `/strings`
-
-```json
-{
-  "value": "Dad"
-}
-
-```
+**POST** `/countries/refresh`
 
 ### Example Response
 ```json
 {
-  "id": "7c1079393a5419a23c26fde0a94f45b939f6935facd5090263dc1e32f47969f3",
-  "value": "Dad",
-  "properties": {
-    "length": 3,
-    "is_palindrome": true,
-    "unique_characters": 3,
-    "word_count": 1,
-    "sha256_hash": "7c1079393a5419a23c26fde0a94f45b939f6935facd5090263dc1e32f47969f3",
-    "character_frequency_map": {
-      "d": 2,
-      "a": 1,
-    }
-  },
-  "created_at": "2025-10-20T12:23:41.195727"
+    "status": "success",
+    "total_countries": 250,
+    "last_refreshed_at": "2025-10-26T15:56:10.495906+00:00"
 }
-
+```
 ```
 
-### ✅ Example Request — Natural Language Filtering
+### ✅ Example Request — Filter Countries
 
-**GET** `/strings/filter-by-natural-language?query=strings longer than 3 characters`
-
-
+**GET** `/countries?region=Africa`
 
 
 ### Example Response
 ```json
-{
-  "data": [
-    {
-      "id": "c2ab4c...",
-      "value": "banana",
-      "properties": {
-        "length": 6,
-        "is_palindrome": false,
-        "unique_characters": 3,
-        "word_count": 1,
-        "sha256_hash": "c2ab4c...",
-        "character_frequency_map": {
-          "b": 1,
-          "a": 3,
-          "n": 2
-        }
-      },
-      "created_at": "2025-10-20T10:15:01.245839"
-    }
-  ],
-  "count": 1,
-  "interpreted_query": {
-    "original": "strings longer than 3 characters",
-    "parsed_filters": {
-      "min_length": 4
-    }
+[
+  {
+    "id": 1,
+    "name": "Nigeria",
+    "capital": "Abuja",
+    "region": "Africa",
+    "population": 206139589,
+    "currency_code": "NGN",
+    "exchange_rate": 1600.23,
+    "estimated_gdp": 25767448125.2,
+    "flag_url": "https://flagcdn.com/ng.svg",
+    "last_refreshed_at": "2025-10-22T18:00:00Z"
   }
-}
+]
+
+ 
 
 
 ```
